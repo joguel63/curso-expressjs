@@ -1,0 +1,25 @@
+{
+  "name": "curso-expressjs",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "author": "joguel63 <80803870+joguel63@users.noreply.github.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.1.0",
+    "@prisma/client": "^7.1.0",
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.16.3"
+  },
+  "scripts": {
+    "run:server": "node --env-file .env --watch src/server.js",
+    "seed": "node --env-file .env prisma/seed.js"
+  },
+  "prisma": {
+    "seed": "node --env-file .env prisma/seed.js"
+  },
+  "devDependencies": {
+    "prisma": "^7.1.0"
+  }
+}
