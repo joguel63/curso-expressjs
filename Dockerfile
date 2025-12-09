@@ -11,8 +11,11 @@ COPY package.json yarn.lock* package-lock.json* ./
 COPY prisma ./prisma
 COPY prisma.config.ts ./
 
-# Instalar dependencias (el postinstall generará Prisma automáticamente)
-RUN npm install
+# Instalar dependencias sin ejecutar postinstall
+RUN npm install --ignore-scripts
+
+# Generar el cliente de Prisma con una URL temporal
+RUN DATABASE_URL="postgresql://temp:temp@temp:5432/temp" npx prisma generate
 
 # Copiar el resto del código
 COPY . .
