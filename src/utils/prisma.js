@@ -1,11 +1,11 @@
 require("dotenv").config();
-const { PrismaClient } = require("../../generated/prisma");
+const { PrismaClient } = require("@prisma/client");
 const { PrismaPg } = require("@prisma/adapter-pg");
 const { Pool } = require("pg");
 
 // Crear una única instancia de Pool
-const pool = new Pool({ 
-  connectionString: process.env.DATABASE_URL 
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
 });
 
 // Crear el adaptador de PostgreSQL
