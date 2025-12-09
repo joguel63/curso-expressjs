@@ -4,12 +4,11 @@ const routes = require("./routes");
 const express = require("express");
 const app = express();
 
-// Middlewares
 app.use(express.json());
 app.use(loggerMiddleware);
+app.use("/api", routes);
 app.use(errorHandler);
 
-app.use("/api", routes);
 
 app.get("/", (_, res) => res.send("Hello World!"));
 
