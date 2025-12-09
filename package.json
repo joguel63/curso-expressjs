@@ -14,7 +14,10 @@
   },
   "scripts": {
     "run:server": "node --env-file .env --watch src/server.js",
-    "seed": "node --env-file .env prisma/seed.js"
+    "seed": "node --env-file .env prisma/seed.js",
+    "postinstall": "prisma generate",
+    "build": "prisma generate",
+    "start": "node src/server.js"
   },
   "prisma": {
     "seed": "node --env-file .env prisma/seed.js"
