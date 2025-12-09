@@ -7,15 +7,12 @@ WORKDIR /app
 # Copiar archivos de dependencias
 COPY package.json yarn.lock* package-lock.json* ./
 
-# Instalar dependencias
-RUN npm install
-
-# Copiar el schema de Prisma y configuración
+# Copiar el schema de Prisma y configuración antes de instalar
 COPY prisma ./prisma
 COPY prisma.config.ts ./
 
-# Generar el cliente de Prisma
-RUN npx prisma generate
+# Instalar dependencias (el postinstall generará Prisma automáticamente)
+RUN npm install
 
 # Copiar el resto del código
 COPY . .
